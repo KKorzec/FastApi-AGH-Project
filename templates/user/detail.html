@@ -1,0 +1,35 @@
+{% extends "shared/base.html" %}
+
+
+{% block title %}
+  <title>{{ user.login }}</title>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="display-6">Szczegóły użytkownika</h1>
+    </div>
+  </div>
+
+  <div class="row">
+      <table class="table table-striped table-hover">
+        <tbody>
+          <tr>
+            <th scope="row">Twój login</th>
+            <td colspan="2">{{ user.login }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Twój email</th>
+            <td colspan="2">{{user.email}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Data urodzenia</th>
+            <td colspan="2">{{user.data_urodzenia}}</td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

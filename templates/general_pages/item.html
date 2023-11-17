@@ -1,0 +1,11 @@
+{% extends "./shared/base.html" %}
+{% block title %}
+<title>Przedmiot</title>
+{% endblock %}
+{% block content %}
+    {% if id %}
+    <h3>ID przedmiotu: {{ id }}</h3>
+    {% else %}
+    <h3>Brak ID przedmiotu</h3>
+    {% endif %}
+{% endblock %}

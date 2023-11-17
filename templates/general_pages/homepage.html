@@ -1,0 +1,42 @@
+{% extends "./shared/base.html" %}
+
+
+{% block title %} 
+  <title>Wypozyczalnia Filmów</title>
+{% endblock %} 
+
+{% block content %} 
+  <div class="container">
+    <div class="row">
+    <div class="col">
+      <h1 class="display-6">Kolekcja filmów:</h1><hr>
+    </div>
+  </div>
+  <div class="row">
+      {% for film in filmy %}
+        <div class="col-lg-4 col-md-3 col-sm-10 mr-auto">
+          {% for gatunek in gatunki %}
+          {% if gatunek.id==film.gatunek_id %}
+            {% set new = gatunek.nazwa %}
+
+          {% with obj=film, n=new %}
+      		{% include "components/cards.html" %}
+    	  {% endwith %}
+
+          {% endif %}
+          {% endfor %}
+
+
+          {% if loop.index %3 %}
+            </div>
+          {% else %}
+            </div></div><br><div class="row">
+          {% endif %}
+      {% endfor %}
+  </div>
+  </div>
+{% endblock %}
+
+  {% with msg=msg %}
+    {% include "components/alerts.html" %}
+  {% endwith %}

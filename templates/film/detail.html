@@ -1,0 +1,50 @@
+{% extends "shared/base.html" %}
+
+
+{% block title %}
+  <title>{{ film.tytul }}</title>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="display-6">Szczegóły filmu</h1>
+    </div>
+  </div>
+
+  <div class="row">
+      <table class="table table-striped table-hover">
+        <tbody>
+          <tr>
+            <th scope="row">Tytuł filmu</th>
+            <td colspan="2">{{ film.tytul }}</td>
+          </tr>
+            {% for gatunek in gatunki %}
+          {% if gatunek.id==film.gatunek_id %}
+            {% set new = gatunek.nazwa %}
+          <tr>
+            <th scope="row">Gatunek</th>
+            <td colspan="2">{{new}}</td>
+          </tr>
+          {% endif %}
+
+           {% endfor %}
+
+          <tr>
+            <th scope="row">Opis filmu</th>
+            <td colspan="2">{{film.opis}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Cena</th>
+            <td colspan="2">{{film.cena}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Ocena</th>
+            <td colspan="2">{{film.ocena}}</td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

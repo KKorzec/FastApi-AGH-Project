@@ -1,0 +1,42 @@
+{% extends "shared/base.html" %}
+
+
+{% block title %}
+  <title>Rejestracja</title>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <h5 class="display-6">Zarejestruj się już dziś!</h5>
+      <div class="text-danger font-weight-bold">
+          {% for error in errors %}
+            <li>{{error}}</li>
+          {% endfor %}
+      </div>
+    </div>
+
+    <div class="row my-5">
+      <form method="POST">
+        <div class="mb-3">
+          <label>login</label>
+          <input type="text" required class="form-control" name="login" value="{{login}}" placeholder="Twój login">
+        </div>
+        <div class="mb-3">
+          <label>Hasło</label>
+          <input type="password" required placeholder="Wybierz mocne hasło" value="{{haslo}}" name="haslo" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label>Adres E-mail</label>
+          <input type="text" required placeholder="Twój adres E-mail" name="email" value="{{email}}" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label>Data urodzenia</label>
+          <input type="date" name="data_urodzenia" value="{{data_urodzenia}}" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+  {% endblock %}
